@@ -20,7 +20,7 @@ controls.mouseButtons = {
     RIGHT: THREE.MOUSE.PAN
 }
 // Makes cube rotation faster and snappier
-controls.rotateSpeed = 8.0;
+controls.rotateSpeed = 5.0;
 controls.staticMoving = false;
 controls.dynamicDampingFactor = 0.5;
 
