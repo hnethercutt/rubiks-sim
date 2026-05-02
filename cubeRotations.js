@@ -1,0 +1,584 @@
+/*
+ * All possible values for all cube clicks and the details of the rotation to make if this click is made
+ * The rotation isn't just determined by where the clicked cube is in the Rubiks, but by which side of it is clicked/
+ * what side of the Rubiks the camera is facing, so there are more than 27 possible clicks.
+*/
+export const cubeRotations = [{
+	// Left side of red face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: -1,
+	grid_y: 0,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	// Front of red face
+	grid_x: 0,
+	grid_y: 0,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	// Red top row
+	grid_x: 0,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'y',
+	layer: 1,
+	direction: -1
+}, {
+	// Red bottom row
+	grid_x: 0,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'y',
+	layer: -1,
+	direction: -1
+}, {
+	// Right side of red face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: 1,
+	grid_y: 0,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: 1,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	// Left side of green face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: -1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: -1,
+	grid_y: 0,
+	grid_z: -1,
+	normal_x: -1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: -1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	// Front of green face
+	grid_x: -1,
+	grid_y: 0,
+	grid_z: 0,
+	normal_x: -1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	// Green top row
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: 0,
+	normal_x: -1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'y',
+	layer: 1,
+	direction: -1
+}, {
+	// Green bottom row
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: 0,
+	normal_x: -1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'y',
+	layer: -1,
+	direction: -1
+}, {
+    // Right side of green face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: -1,
+	normal_y:  0,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+},{
+	grid_x: -1,
+	grid_y: 0,
+	grid_z: 1,
+	normal_x: -1,
+	normal_y:  0,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: -1,
+	normal_y:  0,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	// Left side of orange face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: 1,
+	grid_y: 0,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+    // Front of orange face 
+    grid_x: 0,
+	grid_y: 0,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	// Orange top row
+	grid_x: 0,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'y',
+	layer: 1,
+	direction: -1
+}, {
+	// Orange bottom row
+	grid_x: 0,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'y',
+	layer: -1,
+	direction: -1
+}, {
+	// Right side of orange face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: -1,
+	grid_y: 0,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 0,
+	normal_z: -1,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	// Left side of blue face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: 1,
+	grid_y: 0,
+	grid_z: 1,
+	normal_x: 1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	// Front of blue face
+	grid_x: 1,
+	grid_y: 0,
+	grid_z: 0,
+	normal_x: 1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	// Blue top row
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: 0,
+	normal_x: 1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'y',
+	layer: 1,
+	direction: -1
+}, {
+	// Blue bottom row
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: 0,
+	normal_x: 1,
+	normal_y: 0,
+	normal_z: 0,
+	axis: 'y',
+	layer: -1,
+	direction: -1
+}, {
+    // Right side of blue face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 1,
+	normal_y:  0,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+},{
+	grid_x: 1,
+	grid_y: 0,
+	grid_z: -1,
+	normal_x: 1,
+	normal_y:  0,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 1,
+	normal_y:  0,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	// Blue edge of white face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: 0,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'z',
+	layer: 0,
+	direction: -1
+}, {
+	// Orange edge of white face
+	grid_x: 0,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'x',
+	layer: 0,
+	direction: -1
+}, {
+	// Green edge of white face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: 0,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'z',
+	layer: 0,
+	direction: -1
+}, {
+	// Red edge of white face
+	grid_x: 0,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'x',
+	layer: 0,
+	direction: -1
+}, {
+	// Blue-red corner of white face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	// Blue-orange corner of white face
+	grid_x: 1,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	// Orange-green corner of white face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	// Green-red corner of white face
+	grid_x: -1,
+	grid_y: 1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	// Front of white face
+	grid_x: 0,
+	grid_y: 1,
+	grid_z: 0,
+	normal_x: 0,
+	normal_y: 1,
+	normal_z: 0,
+	axis: 'y',
+	layer: 1,
+	direction: -1
+}, {
+	// Blue edge of yellow face
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: 0,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'z',
+	layer: 0,
+	direction: -1
+}, {
+	// Orange edge of yellow face
+	grid_x: 0,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'x',
+	layer: 0,
+	direction: -1
+}, {
+	// Green edge of yellow face
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: 0,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'z',
+	layer: 0,
+	direction: -1
+}, {
+	// Red edge of yellow face
+	grid_x: 0,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'x',
+	layer: 0,
+	direction: -1
+}, {
+	// Blue-red corner of yellow face
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'z',
+	layer: 1,
+	direction: -1
+}, {
+	// Blue-orange corner of yellow face
+	grid_x: 1,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'x',
+	layer: 1,
+	direction: -1
+}, {
+	// Orange-green corner of yellow face
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: -1,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'z',
+	layer: -1,
+	direction: 1
+}, {
+	// Green-red corner of yellow face
+	grid_x: -1,
+	grid_y: -1,
+	grid_z: 1,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'x',
+	layer: -1,
+	direction: 1
+}, {
+	// Front of yellow face
+	grid_x: 0,
+	grid_y: -1,
+	grid_z: 0,
+	normal_x: 0,
+	normal_y: -1,
+	normal_z: 0,
+	axis: 'y',
+	layer: -1,
+	direction: 1
+}];
