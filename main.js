@@ -498,7 +498,7 @@ const cubeRotations = [{
 	layer: -1,
 	direction: 1
 }, {
-	// Blue egde of white face
+	// Blue edge of white face
 	grid_x: 1,
 	grid_y: 1,
 	grid_z: 0,
@@ -507,9 +507,9 @@ const cubeRotations = [{
 	normal_z: 0,
 	axis: 'z',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
-	// Orange egde of white face
+	// Orange edge of white face
 	grid_x: 0,
 	grid_y: 1,
 	grid_z: -1,
@@ -518,9 +518,9 @@ const cubeRotations = [{
 	normal_z: 0,
 	axis: 'x',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
-	// Green egde of white face
+	// Green edge of white face
 	grid_x: -1,
 	grid_y: 1,
 	grid_z: 0,
@@ -531,7 +531,7 @@ const cubeRotations = [{
 	layer: 0,
 	direction: -1
 }, {
-	// Red egde of white face
+	// Red edge of white face
 	grid_x: 0,
 	grid_y: 1,
 	grid_z: 1,
@@ -553,7 +553,7 @@ const cubeRotations = [{
 	layer: 1,
 	direction: -1
 }, {
-	// Blue-orange egde of white face
+	// Blue-orange corner of white face
 	grid_x: 1,
 	grid_y: 1,
 	grid_z: -1,
@@ -564,7 +564,7 @@ const cubeRotations = [{
 	layer: 1,
 	direction: -1
 }, {
-	// Orange-green egde of white face
+	// Orange-green corner of white face
 	grid_x: -1,
 	grid_y: 1,
 	grid_z: -1,
@@ -575,7 +575,7 @@ const cubeRotations = [{
 	layer: -1,
 	direction: 1
 }, {
-	// Green-red egde of white face
+	// Green-red corner of white face
 	grid_x: -1,
 	grid_y: 1,
 	grid_z: 1,
@@ -586,7 +586,7 @@ const cubeRotations = [{
 	layer: -1,
 	direction: 1
 }, {
-	// Center of white face
+	// Front of white face
 	grid_x: 0,
 	grid_y: 1,
 	grid_z: 0,
@@ -597,7 +597,7 @@ const cubeRotations = [{
 	layer: 1,
 	direction: -1
 }, {
-	// Blue egde of yellow face
+	// Blue edge of yellow face
 	grid_x: 1,
 	grid_y: -1,
 	grid_z: 0,
@@ -606,9 +606,9 @@ const cubeRotations = [{
 	normal_z: 0,
 	axis: 'z',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
-	// Orange egde of yellow face
+	// Orange edge of yellow face
 	grid_x: 0,
 	grid_y: -1,
 	grid_z: -1,
@@ -617,25 +617,25 @@ const cubeRotations = [{
 	normal_z: 0,
 	axis: 'x',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
-	// Green egde of yellow face
+	// Green edge of yellow face
 	grid_x: -1,
 	grid_y: -1,
 	grid_z: 0,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'z',
 	layer: 0,
 	direction: -1
 }, {
-	// Red egde of yellow face
+	// Red edge of yellow face
 	grid_x: 0,
 	grid_y: -1,
 	grid_z: 1,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'x',
 	layer: 0,
@@ -646,54 +646,54 @@ const cubeRotations = [{
 	grid_y: -1,
 	grid_z: 1,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'z',
 	layer: 1,
 	direction: -1
 }, {
-	// Blue-orange egde of yellow face
+	// Blue-orange corner of yellow face
 	grid_x: 1,
 	grid_y: -1,
 	grid_z: -1,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'x',
 	layer: 1,
 	direction: -1
 }, {
-	// Orange-green egde of yellow face
+	// Orange-green corner of yellow face
 	grid_x: -1,
 	grid_y: -1,
 	grid_z: -1,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'z',
 	layer: -1,
 	direction: 1
 }, {
-	// Green-red egde of yellow face
+	// Green-red corner of yellow face
 	grid_x: -1,
 	grid_y: -1,
 	grid_z: 1,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'x',
 	layer: -1,
 	direction: 1
 }, {
-	// Center of yellow face
+	// Front of yellow face
 	grid_x: 0,
 	grid_y: -1,
 	grid_z: 0,
 	normal_x: 0,
-	normal_y: 1,
+	normal_y: -1,
 	normal_z: 0,
 	axis: 'y',
-	layer: 0,
+	layer: -1,
 	direction: 1
 }];
 
