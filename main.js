@@ -94,6 +94,49 @@ for(let x = -1; x <= 1; x++) {
     }
 }
 
+// Shuffle the cube after page loads
+setTimeout(() => {
+    shuffleCube();
+}, 300);
+
+let lastRotation = null;
+function shuffleCube() {
+    const rotations = 20;
+    const axes = ['x', 'y', 'z'];
+    // Want to keep the original face colors in place so don't rotate center rows
+    const layers = [-1, 1];
+
+    let i = 0;
+
+    function nextRotation() {
+        if(i >= rotations) { return; }
+
+        if(isRotating) {
+            requestAnimationFrame(nextRotation);
+            return;
+        }
+
+        let axis, layer;
+
+        do {
+            // Pick a random axis and layer to rotate 
+            axis = axes[Math.floor(Math.random() * axes.length)];
+            layer = layers[Math.floor(Math.random() * layers.length)];
+        // Make sure the same axis/layer isn't rotated over and over again/ensure a proper shuffle is done
+        } while (lastRotation && lastRotation.axis === axis && lastRotation.layer === layer);
+
+        // Determine if this rotation will be clockwise or counterclockwise 
+        let direction = Math.random() > 0.5 ? -1 : 1;
+
+        lastRotation = { axis, layer };
+        rotateLayer(axis, layer, direction);
+
+        i++;
+        requestAnimationFrame(nextRotation);
+    }
+    nextRotation();
+}
+
 // Use raycaster and mouse coordinates to determine what cube was clicked
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
