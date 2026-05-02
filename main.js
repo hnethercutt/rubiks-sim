@@ -1,15 +1,27 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/Addons.js';
+import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x545454);
+
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 10;
+camera.position.x = 3;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new TrackballControls(camera, renderer.domElement);
+controls.mouseButtons = {
+    LEFT: THREE.MOUSE.ROTATE,
+    MIDDLE: THREE.MOUSE.DOLLY,
+    RIGHT: THREE.MOUSE.PAN
+}
+// Makes cube rotation faster and snappier
+controls.rotateSpeed = 8.0;
+controls.staticMoving = false;
+controls.dynamicDampingFactor = 0.5;
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 
@@ -23,45 +35,56 @@ const colors = {
     black: 0x000000
 };
 
+// Colors of each side of a solved Rubiks cube
 const materials = {
     right: new THREE.MeshBasicMaterial({ color: colors.blue }),
     left: new THREE.MeshBasicMaterial({ color: colors.green }),
     top: new THREE.MeshBasicMaterial({ color: colors.white }),
     bottom: new THREE.MeshBasicMaterial({ color: colors.yellow }),
     front: new THREE.MeshBasicMaterial({ color: colors.red }),
-    back: new THREE.MeshBasicMaterial({ color: colors.orange })
+    back: new THREE.MeshBasicMaterial({ color: colors.orange }),
+    hidden: new THREE.MeshBasicMaterial({ color: colors.black })
 }
 
 const outlineMaterial = new THREE.MeshBasicMaterial({
     color: 0x000000,
+    // So only the back of the mesh renders/creates the outline illusion
     side: THREE.BackSide,
 });
 
-
 const cubes = [];
-const spacing = 1.05;
-
 function createCube(x, y, z) {
+    // Between each cube
+    const spacing = 1.05;
+
+    // Coordinates are used to determine the color of each side of the cube
     const cube = new THREE.Mesh(geometry, [
-        x === 1 ? materials.right : colors.black,
-        x === -1 ? materials.left : colors.black,
-        y === 1 ? materials.top : colors.black,
-        y === -1 ? materials.bottom : colors.black,
-        z === 1 ? materials.front : colors.black,
-        z === -1 ? materials.back : colors.black
+        x === 1 ? materials.right : materials.hidden,
+        x === -1 ? materials.left : materials.hidden,
+        y === 1 ? materials.top : materials.hidden,
+        y === -1 ? materials.bottom : materials.hidden,
+        z === 1 ? materials.front : materials.hidden,
+        z === -1 ? materials.back : materials.hidden
     ]);
 
-    cube.userData.grid = { x, y, z };
+    // Set the cube at the given x,y,z coordinates
     cube.position.set(x * spacing, y * spacing, z * spacing);
+    // And log these coordinates to keep track of its location
+    cube.userData.grid = { x, y, z };
 
+    // Add an "outline" to each cube for better realism
     const outline = new THREE.Mesh(geometry, outlineMaterial);
+    // Just a larger cube scaled taking the spacing between cubes into consideration
     outline.scale.set(1.03 * spacing, 1.03 * spacing, 1.03 * spacing);
     cube.add(outline);
 
+    // We want to add all 27 cubes individually to the scene
     scene.add(cube);
+    // But hold a copy of them altogether 
     cubes.push(cube);
 }
 
+// Creates a 3x3 Rubiks cube
 for(let x = -1; x <= 1; x++) {
     for(let y = -1; y <= 1; y++) {
         for(let z = -1; z <= 1; z++) {
@@ -70,10 +93,7 @@ for(let x = -1; x <= 1; x++) {
     }
 }
 
-camera.position.z = 10;
-camera.position.x = 3;
-
-function animate(time) {
+function animate() {
     controls.update();
     renderer.render(scene, camera);
 }
