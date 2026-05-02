@@ -19,7 +19,7 @@ controls.mouseButtons = {
     LEFT: THREE.MOUSE.ROTATE,
     RIGHT: THREE.MOUSE.PAN
 }
-// Makes cube rotation faster, snappier and prevent it from rotating on it's own
+// Makes Rubiks rotation faster, snappier and prevent it from rotating on it's own
 controls.rotateSpeed = 2.0;
 controls.enableDamping = false;
 controls.enableAnimations = false;
@@ -94,13 +94,13 @@ for(let x = -1; x <= 1; x++) {
     }
 }
 
-// Shuffle the cube after page loads
+// Shuffle the Rubiks after page loads
 // setTimeout(() => {
-//     shuffleCube();
+//     shuffleRubiks();
 // }, 300);
 
 let lastRotation = null;
-function shuffleCube() {
+function shuffleRubiks() {
     const rotations = 20;
     const axes = ['x', 'y', 'z'];
     // Want to keep the original face colors in place so don't rotate center rows
@@ -171,7 +171,7 @@ window.addEventListener('click', (e) => {
     // Gets all intersection points between the ray and cubes non-recursively 
     const intersects = raycaster.intersectObjects(cubes, false);
     
-    // False when the user didn't actual click the cube
+    // False when the user didn't actual click a cube
     if(intersects.length > 0) {
         // All rotations by default are clockwise, but they will be counterclockwise on holding Shift
         const clockDirection = e.shiftKey ? -1 : 1;
@@ -189,7 +189,7 @@ function handleCubeClick(clickedCube, clockDirection) {
 
     let axis, layer, direction;
 
-    // Locate the cube rotation instructions from the array that matches the clicked cube
+    // Locate the face rotation instructions from the array that matches the clicked cube
     const cubeRotation = cubeRotationsList.find(cube => 
         cube.grid_x === grid.x && cube.grid_y === grid.y &&
         cube.grid_z === grid.z && cube.normal_x === normal.x &&
@@ -206,7 +206,7 @@ function handleCubeClick(clickedCube, clockDirection) {
 
 let isRotating = false;
 function rotateLayer(axis, layer, direction) {
-    // Prevents cube from literally breaking if it's repeatedly clicked on while completing a rotation
+    // Prevents Rubiks from literally breaking if it's repeatedly clicked on while completing a rotation
     if(isRotating) { return; }
     isRotating = true;
 
@@ -236,7 +236,7 @@ function animateRotation(group, axis, angle, onComplete) {
     const speed = 0.1;
 
     function rotate() {
-        // Continue animation until the rotating part of the cube is back in place
+        // Continue animation until the rotating part of the Rubiks is back in place
         if(Math.abs(rotated) >= Math.abs(angle)) {
             group.rotation[axis] = angle;
             onComplete();
