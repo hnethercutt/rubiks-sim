@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
+import { ArcballControls } from 'three/addons/controls/ArcballControls.js';
 import { cubeRotations } from './cubeRotations';
 
 const scene = new THREE.Scene();
@@ -13,16 +13,15 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const controls = new TrackballControls(camera, renderer.domElement);
+const controls = new ArcballControls(camera, renderer.domElement);
 controls.mouseButtons = {
     LEFT: THREE.MOUSE.ROTATE,
-    MIDDLE: THREE.MOUSE.DOLLY,
     RIGHT: THREE.MOUSE.PAN
 }
-// Makes cube rotation faster and snappier
-controls.rotateSpeed = 5.0;
-controls.staticMoving = false;
-controls.dynamicDampingFactor = 0.5;
+// Makes cube rotation faster, snappier and prevent it from rotating on it's own
+controls.rotateSpeed = 2.0;
+controls.enableDamping = false;
+controls.enableAnimations = false;
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 
@@ -95,9 +94,9 @@ for(let x = -1; x <= 1; x++) {
 }
 
 // Shuffle the cube after page loads
-setTimeout(() => {
-    shuffleCube();
-}, 300);
+// setTimeout(() => {
+//     shuffleCube();
+// }, 300);
 
 let lastRotation = null;
 function shuffleCube() {
