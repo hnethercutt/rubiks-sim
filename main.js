@@ -98,7 +98,26 @@ for(let x = -1; x <= 1; x++) {
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
+// Used to prevent a click rotation from occurring if a user is rotating the entire Rubiks by mouse dragging
+let isDragging = false;
+let startX, startY = 0;
+
+window.addEventListener('mousedown', (e) => {
+    // Store the starting mouse coordinates on initial click
+    startX = e.clientX;
+    startY = e.clientY;
+    isDragging = false;
+});
+// Check to see if the mouse is in a new location when the click is complete
+window.addEventListener('mousemove', (e) => {
+    if(Math.abs(e.clientX - startX) > 5 || Math.abs(e.clientY - startY) > 5) {
+        isDragging = true;
+    }
+});
+
 window.addEventListener('click', (e) => {
+    if(isDragging) { return; }
+    
     // Normalize mouse coordinates 
     mouse.x = (e.clientX / window.innerWidth * 2 - 1);
     mouse.y = -(e.clientY / window.innerHeight * 2 - 1);
