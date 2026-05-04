@@ -97,9 +97,9 @@ for(let x = -1; x <= 1; x++) {
 }
 
 // Shuffle the Rubiks after page loads
-// setTimeout(() => {
-//     shuffleRubiks();
-// }, 300);
+setTimeout(() => {
+    shuffleRubiks();
+}, 300);
 
 let lastRotation = null;
 function shuffleRubiks() {
