@@ -415,7 +415,7 @@ export const cubeRotations = [{
 	normal_z: 0,
 	axis: 'z',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
 	// Red edge of white face
 	grid_x: 0,
@@ -426,7 +426,7 @@ export const cubeRotations = [{
 	normal_z: 0,
 	axis: 'x',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
 	// Blue-red corner of white face
 	grid_x: 1,
@@ -503,7 +503,7 @@ export const cubeRotations = [{
 	normal_z: 0,
 	axis: 'x',
 	layer: 0,
-	direction: 1
+	direction: -1
 }, {
 	// Green edge of yellow face
 	grid_x: -1,
@@ -514,7 +514,7 @@ export const cubeRotations = [{
 	normal_z: 0,
 	axis: 'z',
 	layer: 0,
-	direction: -1
+	direction: 1
 }, {
 	// Red edge of yellow face
 	grid_x: 0,
