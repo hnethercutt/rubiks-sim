@@ -21,9 +21,9 @@ export const cubeRotations = [{
 	normal_x: 0,
 	normal_y: 0,
 	normal_z: 1,
-	axis: 'x',
-	layer: -1,
-	direction: 1
+	axis: 'y',
+	layer: 0,
+	direction: -1
 }, {
 	grid_x: -1,
 	grid_y: -1,
@@ -85,8 +85,8 @@ export const cubeRotations = [{
 	normal_x: 0,
 	normal_y: 0,
 	normal_z: 1,
-	axis: 'x',
-	layer: 1,
+	axis: 'y',
+	layer: 0,
 	direction: -1
 }, {
 	grid_x: 1,
@@ -116,9 +116,9 @@ export const cubeRotations = [{
 	normal_x: -1,
 	normal_y: 0,
 	normal_z: 0,
-	axis: 'z',
-	layer: -1,
-	direction: 1
+	axis: 'y',
+	layer: 0,
+	direction: -1
 }, {
 	grid_x: -1,
 	grid_y: -1,
@@ -180,8 +180,8 @@ export const cubeRotations = [{
 	normal_x: -1,
 	normal_y:  0,
 	normal_z: 0,
-	axis: 'z',
-	layer: 1,
+	axis: 'y',
+	layer: 0,
 	direction: -1
 }, {
 	grid_x: -1,
@@ -211,8 +211,8 @@ export const cubeRotations = [{
 	normal_x: 0,
 	normal_y: 0,
 	normal_z: -1,
-	axis: 'x',
-	layer: 1,
+	axis: 'y',
+	layer: 0,
 	direction: -1
 }, {
 	grid_x: 1,
@@ -275,9 +275,9 @@ export const cubeRotations = [{
 	normal_x: 0,
 	normal_y: 0,
 	normal_z: -1,
-	axis: 'x',
-	layer: -1,
-	direction: 1
+	axis: 'y',
+	layer: 0,
+	direction: -1
 }, {
 	grid_x: -1,
 	grid_y: -1,
@@ -306,8 +306,8 @@ export const cubeRotations = [{
 	normal_x: 1,
 	normal_y: 0,
 	normal_z: 0,
-	axis: 'z',
-	layer: 1,
+	axis: 'y',
+	layer: 0,
 	direction: -1
 }, {
 	grid_x: 1,
@@ -370,9 +370,9 @@ export const cubeRotations = [{
 	normal_x: 1,
 	normal_y:  0,
 	normal_z: 0,
-	axis: 'z',
-	layer: -1,
-	direction: 1
+	axis: 'y',
+	layer: 0,
+	direction: -1
 }, {
 	grid_x: 1,
 	grid_y: -1,
